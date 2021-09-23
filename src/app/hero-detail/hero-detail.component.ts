@@ -17,10 +17,16 @@ export class HeroDetailComponent implements OnInit {
     private location: Location
   ) {}
   // property
-  
+
   // life cycal
   ngOnInit(): void {
     this.getHero();
+  }
+  save(): void {
+    if (this.hero) {
+      this.heroService.updateHero(this.hero)
+        .subscribe(() => this.goBack());
+    }
   }
   // methods
   goBack(): void {
